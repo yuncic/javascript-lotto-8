@@ -34,6 +34,16 @@ class WinningLotto {
     get bonus() {
         return this.#bonus;
     }
+
+    matchCount(lotto) {
+        return lotto.numbers.filter(num => this.#numbers.includes(num)).length;
+    }
+
+    hasBonus(lotto) {
+        return lotto.numbers.includes(this.#bonus)
+    }
+
+
 }
 
 export default WinningLotto;
