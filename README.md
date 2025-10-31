@@ -70,6 +70,7 @@
 │   ├─ 📄 Validator.js         # 입력값 및 로또 번호 검증 (모든 유효성 검사 담당)
 │   ├─ 📄 constants.js         # 상수 및 에러 메시지 정의 (가격, 범위, 당첨 금액 등)
 ├── tests/
-│   ├─ 📄 Lotto.test.js
-│   ├─ 📄 WinningLotto.test.js
-│   ├─ 📄 LottoResult.test.js
+│   ├─ 📄 LottoTest.js
+│   ├─ 📄 WinningLottoTest.js
+│   ├─ 📄 LottoResultTest.js
+│   ├─ 📄 ApplicationTest.js
