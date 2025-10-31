@@ -40,7 +40,8 @@ class LottoResult {
                 const prize = PRIZE[rank] || 0;
                 totalReward += prize * count;
             });
-            return ((totalReward / purchaseAmount) * 100).toFixed(1);
+            return Number(((totalReward / purchaseAmount) * 100).toFixed(1));
+            
         }
     }
 

@@ -13,8 +13,8 @@ describe("LottoResult 클래스 테스트", () => {
 
     const result = new LottoResult(lottos, winningLotto);
     expect(result.ranks).toEqual({
-      1: 1, // 6개 일치
-      3: 1, // 3개 일치
+      1: 1, // 6개 일치 1등
+      5: 1, // 3개 일치 5등
       0: 1, // 나머지
     });
   });
