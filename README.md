@@ -74,3 +74,4 @@
 │   ├─ 📄 WinningLottoTest.js
 │   ├─ 📄 LottoResultTest.js
 │   ├─ 📄 ApplicationTest.js
+│   ├─ 📄 LottoMachineTest.js
