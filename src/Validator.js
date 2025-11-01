@@ -1,5 +1,5 @@
-import { ERROR_MESSAGE } from "./Contants";
-import { LOTTO } from "./Contants";
+import { ERROR_MESSAGE, LOTTO } from "./Contants.js";
+
 
 const VALIDATOR = {
     validatorAmount(amount) {

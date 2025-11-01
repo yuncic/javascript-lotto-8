@@ -6,11 +6,11 @@ export const LOTTO = {
 }
 
 export const PRIZE = {
-    3: 5000,
+    1: 2000000000,
+    2: 30000000,
+    3: 1500000,
     4: 50000,
-    5: 1500000,
-    5.5: 30000000,
-    6: 2000000000
+    5: 5000
 }
 
 export const ERROR_MESSAGE = {

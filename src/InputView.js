@@ -3,21 +3,21 @@ import VALIDATOR from "./Validator.js";
 
 const InputView = {
   async readPurchaseAmount() {
-    const input = await Console.readLineAsync("구입 금액을 입력해 주세요: ");
+    const input = await Console.readLineAsync("구입 금액을 입력해 주세요. ");
     const amount = Number(input);
     VALIDATOR.validatorAmount(amount);
     return amount;
   },
 
   async readWinningNumbers() {
-    const input = await Console.readLineAsync("당첨 번호를 입력해 주세요 (쉼표로 구분): ");
+    const input = await Console.readLineAsync("당첨 번호를 입력해 주세요. ");
     const numbers = input.split(",").map(Number);
     VALIDATOR.validatorNumber(numbers);
     return numbers;
   },
 
   async readBonusNumber() {
-    const input = await Console.readLineAsync("보너스 번호를 입력해 주세요: ");
+    const input = await Console.readLineAsync("보너스 번호를 입력해 주세요. ");
     const bonus = Number(input);
     return bonus;
   },

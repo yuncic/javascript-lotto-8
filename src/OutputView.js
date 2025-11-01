@@ -1,5 +1,4 @@
 import { Console } from "@woowacourse/mission-utils";
-import { PRIZE } from "./Contants.js";
 
 const OutputView = {
   printLottos(lottos) {

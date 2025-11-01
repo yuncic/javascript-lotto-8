@@ -1,4 +1,4 @@
-import { LOTTO , PRIZE } from "./Contants";
+import { LOTTO , PRIZE } from "./Contants.js";
 
 class LottoResult {
     constructor(lottos, winningLotto) {
@@ -11,12 +11,8 @@ class LottoResult {
         const ranks = {};
 
         this.lottos.forEach((lotto) => {
-            const matchCount = lotto.numbers.filter((num) => 
-                this.winningLotto.numbers.includes(num)
-            ).length; 
-
-            const hasBonus = matchCount === 5 && lotto.numbers.includes(this.winningLotto.bonus);
-
+            const matchCount = this.winningLotto.matchCount(lotto);
+            const hasBonus = this.winningLotto.hasBonus(lotto);
             const rank = this.#getRank(matchCount, hasBonus);
             ranks[rank] = (ranks[rank] || 0) + 1;
         });
@@ -33,8 +29,8 @@ class LottoResult {
             return 0;
         }
 
-        calculateProfit(purchaseAmount) {
-            let totalReward = 0;
+    calculateProfit(purchaseAmount) {
+        let totalReward = 0;
 
             Object.entries(this.ranks).forEach(([rank, count]) => {
                 const prize = PRIZE[rank] || 0;
