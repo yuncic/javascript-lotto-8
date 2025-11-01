@@ -1,4 +1,4 @@
-import { LOTTO , PRIZE} from "./Contants";
+import { LOTTO , PRIZE } from "./Contants";
 
 class LottoResult {
     constructor(lottos, winningLotto) {
