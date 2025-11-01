@@ -3,17 +3,27 @@ import VALIDATOR from "./Validator.js";
 
 const InputView = {
   async readPurchaseAmount() {
-    const input = await Console.readLineAsync("구입 금액을 입력해 주세요. ");
-    const amount = Number(input);
-    VALIDATOR.validatorAmount(amount);
-    return amount;
+    try {
+      const input = await Console.readLineAsync("구입 금액을 입력해 주세요. ");
+      const amount = Number(input);
+      VALIDATOR.validatorAmount(amount);
+      return amount;
+    } catch (error) {
+      Console.print(error.message);
+      throw error;
+    }
   },
 
   async readWinningNumbers() {
-    const input = await Console.readLineAsync("당첨 번호를 입력해 주세요. ");
-    const numbers = input.split(",").map(Number);
-    VALIDATOR.validatorNumber(numbers);
-    return numbers;
+    try {
+      const input = await Console.readLineAsync("당첨 번호를 입력해 주세요. ");
+      const numbers = input.split(",").map(Number);
+      VALIDATOR.validatorNumber(numbers);
+      return numbers;
+    } catch (error) {
+      Console.print(error.message);
+      throw error;
+    }
   },
 
   async readBonusNumber() {
