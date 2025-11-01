@@ -1,4 +1,5 @@
 import { ERROR_MESSAGE } from "./Contants";
+import { LOTTO } from "./Contants";
 
 const VALIDATOR = {
     validatorAmount(amount) {
