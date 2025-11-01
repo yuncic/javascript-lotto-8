@@ -1,5 +1,6 @@
 import Lotto from "./Lotto";
 import { LOTTO } from "./Contants";
+import { Random } from "@woowacourse/mission-utils";
 
 class LottoMachine {
     buyLottos(amount) {
@@ -14,14 +15,12 @@ class LottoMachine {
     }
 
     #generateLottoNumbers() {
-        const numbers = [];
-        while (numbers.length < LOTTO.NUMBER_COUNT) {
-            const num = Math.floor(Math.random() * LOTTO.MAX_NUMBER) + 1 ;
-            if (!numbers.includes(num)) {
-                numbers.push(num);
-            }
-        }
-        return numbers.sort((a,b) => a - b);
+        const numbers = Random.pickUniqueNumbersInRange(
+            LOTTO.MIN_NUMBER,
+            LOTTO.MAX_NUMBER,
+            LOTTO.NUMBER_COUNT
+        );
+        return numbers.sort((a, b) => a - b);
     }
 }
 
