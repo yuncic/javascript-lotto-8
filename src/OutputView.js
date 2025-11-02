@@ -6,7 +6,7 @@ const OutputView = {
     lottos.forEach((lotto) => {
       Console.print(`[${lotto.numbers.join(", ")}]`);
     });
-    Console.print(""); 
+    Console.print("");
   },
 
   printResult(lottoResult, purchaseAmount) {
