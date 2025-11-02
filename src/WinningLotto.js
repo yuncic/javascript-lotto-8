@@ -1,4 +1,3 @@
-import { ERROR_MESSAGE , LOTTO } from "./Contants.js";
 import VALIDATOR from "./Validator.js";
 
 class WinningLotto {

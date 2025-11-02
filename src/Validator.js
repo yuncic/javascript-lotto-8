@@ -1,4 +1,4 @@
-import { ERROR_MESSAGE, LOTTO } from "./Contants.js";
+import { ERROR_MESSAGE, LOTTO } from "./Constants.js";
 
 
 const VALIDATOR = {

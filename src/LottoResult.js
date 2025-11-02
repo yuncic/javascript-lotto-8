@@ -1,4 +1,4 @@
-import { LOTTO , PRIZE } from "./Contants.js";
+import { PRIZE } from "./Constants.js";
 
 class LottoResult {
     constructor(lottos, winningLotto) {

@@ -68,7 +68,7 @@
 │   ├─ 📄 InputView.js         # 사용자 입력 처리 (구입 금액, 당첨 번호, 보너스 번호)
 │   ├─ 📄 OutputView.js        # 출력 담당 (발행 로또 목록, 당첨 통계, 수익률 표시)
 │   ├─ 📄 Validator.js         # 입력값 및 로또 번호 검증 (모든 유효성 검사 담당)
-│   ├─ 📄 constants.js         # 상수 및 에러 메시지 정의 (가격, 범위, 당첨 금액 등)
+│   ├─ 📄 Constants.js         # 상수 및 에러 메시지 정의 (가격, 범위, 당첨 금액 등)
 ├── tests/
 │   ├─ 📄 LottoTest.js
 │   ├─ 📄 WinningLottoTest.js

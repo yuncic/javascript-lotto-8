@@ -1,6 +1,6 @@
 import LottoMachine from "../src/LottoMachine.js";
 import Lotto from "../src/Lotto.js";
-import { LOTTO } from "../src/Contants.js";
+import { LOTTO } from "../src/Constants.js";
 
 describe("LottoMachine 클래스 테스트", () => {
   test("금액에 따라 올바른 개수의 로또가 생성되어야 한다", () => {
