@@ -1,3 +1,4 @@
+import { ERROR_MESSAGE } from "./Constants.js";
 import VALIDATOR from "./Validator.js";
 
 class WinningLotto {
@@ -14,10 +15,10 @@ class WinningLotto {
         VALIDATOR.validatorNumber(numbers);
 
         if (bonus < 1 || bonus > 45) {
-            throw new Error("[ERROR] 보너스 번호는 1~45 사이여야 합니다.");
+            throw new Error(ERROR_MESSAGE.NUMBER_RANGE_ERROR);
         }
         if (numbers.includes(bonus)){
-            throw new Error('[ERROR] 보너스 번호는 당첨 번호와 중복될 수 없습니다.')
+            throw new Error(ERROR_MESSAGE.BONUS_DUPLICATE_ERROR)
         }
     }
     get numbers() {

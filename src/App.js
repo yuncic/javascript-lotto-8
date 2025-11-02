@@ -21,7 +21,7 @@ class App {
       const lottoResult = new LottoResult(lottos, winningLotto);
       OutputView.printResult(lottoResult, amount);
     } catch (error) {
- 
+      Console.print(error.message)
     }
   }
 }

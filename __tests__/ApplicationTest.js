@@ -94,4 +94,62 @@ describe("로또 테스트", () => {
   test("예외 테스트", async () => {
     await runException("1000j");
   });
+
+  test("구입 금액이 1000원 단위가 아닐 경우 예외 발생", async () => {
+  await runException("1500");
+});
+
+test("구입 금액이 음수일 경우 예외 발생", async () => {
+  await runException("-5000");
+});
+
+test("당첨 번호에 중복된 숫자가 있을 경우 예외 발생", async () => {
+  const logSpy = getLogSpy();
+
+  mockQuestions(["1000", "1,2,3,3,4,5", "7"]);
+  mockRandoms([[1, 2, 3, 4, 5, 6]]);
+
+  const app = new App();
+  await app.run();
+
+  expect(logSpy).toHaveBeenCalledWith(expect.stringContaining("[ERROR]"));
+});
+
+test("보너스 번호가 당첨 번호와 중복될 경우 예외 발생", async () => {
+  const logSpy = getLogSpy();
+
+  mockQuestions(["1000", "1,2,3,4,5,6", "6"]);
+  mockRandoms([[1, 2, 3, 4, 5, 6]]);
+
+  const app = new App();
+  await app.run();
+
+  expect(logSpy).toHaveBeenCalledWith(expect.stringContaining("[ERROR]"));
+});
+
+test("수익률 0% 정상 출력", async () => {
+  const logSpy = getLogSpy();
+
+  mockQuestions(["1000", "40,41,42,43,44,45", "39"]);
+  mockRandoms([[1, 2, 3, 4, 5, 6]]);
+
+  const app = new App();
+  await app.run();
+
+  expect(logSpy).toHaveBeenCalledWith(expect.stringContaining("총 수익률은 0%입니다."));
+});
+
+test("5개 번호 + 보너스 번호 일치 시 2등 당첨으로 출력", async () => {
+  const logSpy = getLogSpy();
+
+  mockQuestions(["1000", "1,2,3,4,5,6", "7"]);
+  mockRandoms([[1, 2, 3, 4, 5, 7]]);
+
+  const app = new App();
+  await app.run();
+
+  expect(logSpy).toHaveBeenCalledWith(expect.stringContaining("5개 일치, 보너스 볼 일치 (30,000,000원) - 1개"));
+});
+
+
 });
