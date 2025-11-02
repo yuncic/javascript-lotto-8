@@ -7,7 +7,7 @@ class WinningLotto {
 
     constructor(numbers, bonus) {
         this.#validate(numbers, bonus);
-        this.#numbers = [...numbers].sort((a,b) => a - b);
+        this.#numbers = [...numbers].sort((a, b) => a - b);
         this.#bonus = bonus;
     }
 
@@ -17,7 +17,7 @@ class WinningLotto {
         if (bonus < 1 || bonus > 45) {
             throw new Error(ERROR_MESSAGE.NUMBER_RANGE_ERROR);
         }
-        if (numbers.includes(bonus)){
+        if (numbers.includes(bonus)) {
             throw new Error(ERROR_MESSAGE.BONUS_DUPLICATE_ERROR)
         }
     }
