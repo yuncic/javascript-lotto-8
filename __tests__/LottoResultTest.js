@@ -25,9 +25,8 @@ describe("LottoResult 클래스 테스트", () => {
       new Lotto([1, 2, 3, 7, 8, 9]),
     ];
     const winningLotto = new WinningLotto([1, 2, 3, 4, 5, 6], 7);
-    const result = new LottoResult(lottos, winningLotto);
 
-    const profit = result.calculateProfit(2000);
-    expect(profit).toBeGreaterThan(0);
+    const result = new LottoResult(lottos, winningLotto, 2000);
+    expect(result.profit).toBeGreaterThan(0);
   });
 });

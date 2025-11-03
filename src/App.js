@@ -18,7 +18,7 @@ class App {
 
       const bonusNumber = await InputView.readBonusNumber();
       const winningLotto = new WinningLotto(winningNumbers, bonusNumber);
-      const lottoResult = new LottoResult(lottos, winningLotto);
+      const lottoResult = new LottoResult(lottos, winningLotto, amount);
       OutputView.printResult(lottoResult, amount);
     } catch (error) {
       Console.print(error.message)

@@ -1,9 +1,10 @@
 import { PRIZE } from "./Constants.js";
 
 class LottoResult {
-    constructor(lottos, winningLotto) {
+    constructor(lottos, winningLotto, purchaseAmount) {
         this.lottos = lottos;
         this.winningLotto = winningLotto;
+        this.purchaseAmount = purchaseAmount;
         this.ranks = this.#calculateRanks();
     }
 
@@ -29,15 +30,18 @@ class LottoResult {
         return 0;
     }
 
-    calculateProfit(purchaseAmount) {
+    #calculateProfit() {
         let totalReward = 0;
 
         Object.entries(this.ranks).forEach(([rank, count]) => {
             const prize = PRIZE[rank] || 0;
             totalReward += prize * count;
         });
-        return Number(((totalReward / purchaseAmount) * 100).toFixed(1));
+        return Number(((totalReward / this.purchaseAmount) * 100).toFixed(1));
 
+    }
+    get profit() {
+        return this.#calculateProfit();
     }
 }
 

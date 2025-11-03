@@ -9,9 +9,9 @@ const OutputView = {
     Console.print("");
   },
 
-  printResult(lottoResult, purchaseAmount) {
+  printResult(lottoResult) {
     const { ranks } = lottoResult;
-    const profitRate = lottoResult.calculateProfit(purchaseAmount);
+    const profitRate = lottoResult.profit;
 
     Console.print("당첨 통계");
     Console.print("---");
