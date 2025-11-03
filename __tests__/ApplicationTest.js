@@ -120,15 +120,13 @@ describe("로또 테스트", () => {
     const logSpy = getLogSpy();
 
     mockQuestions(["1000", "40,41,42,43,44,45", "39"]);
-    mockRandoms([[40,41,42,43,44,45]]);
+    mockRandoms([[40, 41, 42, 43, 44, 45]]);
 
     const app = new App();
     await app.run();
 
     expect(logSpy).toHaveBeenCalledWith(expect.stringContaining("총 수익률은 200000000%입니다."));
   });
-
-
 
   test("예외 테스트", async () => {
     await runException("1000j");
