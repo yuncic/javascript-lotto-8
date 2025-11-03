@@ -92,6 +92,44 @@ describe("로또 테스트", () => {
     });
   });
 
+  test("수익률 0% 정상 출력", async () => {
+    const logSpy = getLogSpy();
+
+    mockQuestions(["1000", "40,41,42,43,44,45", "39"]);
+    mockRandoms([[1, 2, 3, 4, 5, 6]]);
+
+    const app = new App();
+    await app.run();
+
+    expect(logSpy).toHaveBeenCalledWith(expect.stringContaining("총 수익률은 0%입니다."));
+  });
+
+  test("5개 번호 + 보너스 번호 일치 시 2등 당첨으로 출력", async () => {
+    const logSpy = getLogSpy();
+
+    mockQuestions(["1000", "1,2,3,4,5,6", "7"]);
+    mockRandoms([[1, 2, 3, 4, 5, 7]]);
+
+    const app = new App();
+    await app.run();
+
+    expect(logSpy).toHaveBeenCalledWith(expect.stringContaining("5개 일치, 보너스 볼 일치 (30,000,000원) - 1개"));
+  });
+
+  test("1등 당첨 정상 출력", async () => {
+    const logSpy = getLogSpy();
+
+    mockQuestions(["1000", "40,41,42,43,44,45", "39"]);
+    mockRandoms([[40,41,42,43,44,45]]);
+
+    const app = new App();
+    await app.run();
+
+    expect(logSpy).toHaveBeenCalledWith(expect.stringContaining("총 수익률은 200000000%입니다."));
+  });
+
+
+
   test("예외 테스트", async () => {
     await runException("1000j");
   });
@@ -126,30 +164,6 @@ describe("로또 테스트", () => {
     await app.run();
 
     expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(DEFAULT_ERROR_MESSAGE));
-  });
-
-  test("수익률 0% 정상 출력", async () => {
-    const logSpy = getLogSpy();
-
-    mockQuestions(["1000", "40,41,42,43,44,45", "39"]);
-    mockRandoms([[1, 2, 3, 4, 5, 6]]);
-
-    const app = new App();
-    await app.run();
-
-    expect(logSpy).toHaveBeenCalledWith(expect.stringContaining("총 수익률은 0%입니다."));
-  });
-
-  test("5개 번호 + 보너스 번호 일치 시 2등 당첨으로 출력", async () => {
-    const logSpy = getLogSpy();
-
-    mockQuestions(["1000", "1,2,3,4,5,6", "7"]);
-    mockRandoms([[1, 2, 3, 4, 5, 7]]);
-
-    const app = new App();
-    await app.run();
-
-    expect(logSpy).toHaveBeenCalledWith(expect.stringContaining("5개 일치, 보너스 볼 일치 (30,000,000원) - 1개"));
   });
 
 
