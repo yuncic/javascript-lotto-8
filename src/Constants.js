@@ -13,6 +13,12 @@ export const PRIZE = {
     5: 5000
 }
 
+export const MESSAGE = {
+    INPUT_PRICE: "구입 금액을 입력해 주세요. ",
+    INPUT_WINNING_NUM: "당첨 번호를 입력해 주세요. ",
+    INPUT_BONUS_NUM: "보너스 번호를 입력해 주세요. ",
+}
+
 export const ERROR_MESSAGE = {
     AMOUNT_ERROR: '[ERROR] 구입 금액은 1000원 단위 양수여야 합니다.',
     NUMBER_RANGE_ERROR: '[ERROR] 로또 번호는 1~45 사이여야 합니다.',

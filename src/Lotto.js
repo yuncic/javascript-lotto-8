@@ -8,7 +8,6 @@ class Lotto {
     this.#numbers = [...numbers].sort((a, b) => a - b);
   }
 
-  // TODO: 추가 기능 구현
   get numbers() {
     return this.#numbers;
   }
