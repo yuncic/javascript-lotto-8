@@ -1,5 +1,6 @@
 import App from "../src/App.js";
 import { MissionUtils } from "@woowacourse/mission-utils";
+import { DEFAULT_ERROR_MESSAGE } from "../src/Constants.js"
 
 const mockQuestions = (inputs) => {
   MissionUtils.Console.readLineAsync = jest.fn();
@@ -39,7 +40,7 @@ const runException = async (input) => {
   await app.run();
 
   // then
-  expect(logSpy).toHaveBeenCalledWith(expect.stringContaining("[ERROR]"));
+  expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(DEFAULT_ERROR_MESSAGE));
 };
 
 describe("로또 테스트", () => {
@@ -112,7 +113,7 @@ describe("로또 테스트", () => {
     const app = new App();
     await app.run();
 
-    expect(logSpy).toHaveBeenCalledWith(expect.stringContaining("[ERROR]"));
+    expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(DEFAULT_ERROR_MESSAGE));
   });
 
   test("보너스 번호가 당첨 번호와 중복될 경우 예외 발생", async () => {
@@ -124,7 +125,7 @@ describe("로또 테스트", () => {
     const app = new App();
     await app.run();
 
-    expect(logSpy).toHaveBeenCalledWith(expect.stringContaining("[ERROR]"));
+    expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(DEFAULT_ERROR_MESSAGE));
   });
 
   test("수익률 0% 정상 출력", async () => {
