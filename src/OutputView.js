@@ -1,4 +1,5 @@
 import { Console } from "@woowacourse/mission-utils";
+import { OUTPUT_MESSAGE } from "./Constants.js";
 
 const OutputView = {
   printLottos(lottos) {
@@ -13,15 +14,16 @@ const OutputView = {
     const { ranks } = lottoResult;
     const profitRate = lottoResult.profit;
 
-    Console.print("당첨 통계");
-    Console.print("---");
-    Console.print(`3개 일치 (5,000원) - ${ranks[5] || 0}개`);
-    Console.print(`4개 일치 (50,000원) - ${ranks[4] || 0}개`);
-    Console.print(`5개 일치 (1,500,000원) - ${ranks[3] || 0}개`);
-    Console.print(`5개 일치, 보너스 볼 일치 (30,000,000원) - ${ranks[2] || 0}개`);
-    Console.print(`6개 일치 (2,000,000,000원) - ${ranks[1] || 0}개`);
-    Console.print(`총 수익률은 ${profitRate}%입니다.`);
+    Console.print(OUTPUT_MESSAGE.RESULT_TITLE);
+    Console.print(OUTPUT_MESSAGE.RESULT_DIVIDER);
+    Console.print(`${OUTPUT_MESSAGE.MATCH_3} - ${ranks[5] || 0}개`);
+    Console.print(`${OUTPUT_MESSAGE.MATCH_4} - ${ranks[4] || 0}개`);
+    Console.print(`${OUTPUT_MESSAGE.MATCH_5} - ${ranks[3] || 0}개`);
+    Console.print(`${OUTPUT_MESSAGE.MATCH_5_BONUS} - ${ranks[2] || 0}개`);
+    Console.print(`${OUTPUT_MESSAGE.MATCH_6} - ${ranks[1] || 0}개`);
+    Console.print(`${OUTPUT_MESSAGE.PROFIT} ${profitRate}%입니다.`);
   },
 };
+
 
 export default OutputView;
